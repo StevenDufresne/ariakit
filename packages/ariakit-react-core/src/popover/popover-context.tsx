@@ -30,5 +30,7 @@ export const usePopoverScopedContext = ctx.useScopedContext;
 export const usePopoverProviderContext = ctx.useProviderContext;
 
 export const PopoverContextProvider = ctx.ContextProvider;
+PopoverContextProvider.displayName = "PopoverContextProvider";
 
 export const PopoverScopedContextProvider = ctx.ScopedContextProvider;
+PopoverScopedContextProvider.displayName = "PopoverScopedContextProvider";

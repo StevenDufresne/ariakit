@@ -23,6 +23,7 @@ import {
   useMenuProviderContext,
 } from "./menu-context.tsx";
 import type { MenuStore, MenuStoreState } from "./menu-store.ts";
+import { Menu } from "./menu.tsx";
 
 const TagName = "button" satisfies ElementType;
 type TagName = typeof TagName | "div";
@@ -165,11 +166,16 @@ export const useMenuButton = createHook<TagName, MenuButtonOptions>(
       }
     });
 
+    console.log("wrapping element", props);
     props = useWrapElement(
       props,
-      (element) => (
-        <MenuContextProvider value={store}>{element}</MenuContextProvider>
-      ),
+      (element) => {
+        console.log("wrapping element", element);
+
+        return (
+          <MenuContextProvider value={store}>{element}</MenuContextProvider>
+        );
+      },
       [store],
     );
 
@@ -201,6 +207,11 @@ export const useMenuButton = createHook<TagName, MenuButtonOptions>(
         : undefined;
 
     const contentElement = store.useState("contentElement");
+
+    // const previousContentElement = useRef(contentElement);
+    // console.log('previousContentElement', previousContentElement.current)
+    // console.log('contentElement', contentElement)
+    // console.log('previousContentElement === contentElement', previousContentElement.current === contentElement)
 
     props = {
       id,
@@ -278,7 +289,17 @@ export const useMenuButton = createHook<TagName, MenuButtonOptions>(
 export const MenuButton = forwardRef(function MenuButton(
   props: MenuButtonProps,
 ) {
+  const previousProps = useRef(props);
+
+  console.log(previousProps.current === props);
+  console.log(previousProps.current);
+  console.log(props);
+
+  // check if
   const htmlProps = useMenuButton(props);
+
+  console.log("rendering menu button", htmlProps);
+
   return createElement(TagName, htmlProps);
 });
 

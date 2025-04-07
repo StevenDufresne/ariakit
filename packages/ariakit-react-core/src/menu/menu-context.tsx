@@ -36,14 +36,19 @@ const menu = createStoreContext<MenuStore>(
  * }
  */
 export const useMenuContext = menu.useContext;
+useMenuContext.displayName = "useMenuContext";
 
 export const useMenuScopedContext = menu.useScopedContext;
+useMenuScopedContext.displayName = "useMenuScopedContext";
 
 export const useMenuProviderContext = menu.useProviderContext;
+useMenuProviderContext.displayName = "useMenuProviderContext";
 
 export const MenuContextProvider = menu.ContextProvider;
+MenuContextProvider.displayName = "MenuContextProvider";
 
 export const MenuScopedContextProvider = menu.ScopedContextProvider;
+MenuScopedContextProvider.displayName = "MenuScopedContextProvider";
 
 /**
  * Returns the menuBar store from the nearest menuBar container.

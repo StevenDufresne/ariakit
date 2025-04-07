@@ -30,5 +30,7 @@ export const useHovercardScopedContext = ctx.useScopedContext;
 export const useHovercardProviderContext = ctx.useProviderContext;
 
 export const HovercardContextProvider = ctx.ContextProvider;
+HovercardContextProvider.displayName = "HovercardContextProvider";
 
 export const HovercardScopedContextProvider = ctx.ScopedContextProvider;
+HovercardScopedContextProvider.displayName = "HovercardScopedContextProvider";

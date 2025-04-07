@@ -25,14 +25,17 @@ const ctx = createStoreContext<CompositeStore>(
  * }
  */
 export const useCompositeContext = ctx.useContext;
+useCompositeContext.displayName = "useCompositeContext";
 
 export const useCompositeScopedContext = ctx.useScopedContext;
 
 export const useCompositeProviderContext = ctx.useProviderContext;
 
 export const CompositeContextProvider = ctx.ContextProvider;
+CompositeContextProvider.displayName = "CompositeContextProvider";
 
 export const CompositeScopedContextProvider = ctx.ScopedContextProvider;
+CompositeScopedContextProvider.displayName = "CompositeScopedContextProvider";
 
 interface ItemContext {
   baseElement?: HTMLElement;
@@ -42,6 +45,7 @@ interface ItemContext {
 export const CompositeItemContext = createContext<ItemContext | undefined>(
   undefined,
 );
+CompositeItemContext.displayName = "CompositeItemContext";
 
 interface RowContext extends ItemContext {
   ariaSetSize?: number;
@@ -51,3 +55,4 @@ interface RowContext extends ItemContext {
 export const CompositeRowContext = createContext<RowContext | undefined>(
   undefined,
 );
+CompositeRowContext.displayName = "CompositeRowContext";

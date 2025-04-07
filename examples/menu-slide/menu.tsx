@@ -10,6 +10,7 @@ interface MenuContextProps {
 }
 
 const MenuContext = React.createContext<MenuContextProps | null>(null);
+MenuContext.displayName = "MenuSlideContext";
 
 export interface MenuProps extends React.ComponentPropsWithoutRef<"div"> {
   label: React.ReactNode;
