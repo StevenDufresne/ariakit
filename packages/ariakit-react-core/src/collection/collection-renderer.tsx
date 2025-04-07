@@ -122,6 +122,7 @@ interface CollectionRendererContextValue {
 
 const CollectionRendererContext =
   createContext<CollectionRendererContextValue | null>(null);
+CollectionRendererContext.displayName = "CollectionRendererContext";
 
 function createTask() {
   let raf = 0;

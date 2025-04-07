@@ -32,8 +32,10 @@ export const useDialogScopedContext = ctx.useScopedContext;
 export const useDialogProviderContext = ctx.useProviderContext;
 
 export const DialogContextProvider = ctx.ContextProvider;
+DialogContextProvider.displayName = "DialogContextProvider";
 
 export const DialogScopedContextProvider = ctx.ScopedContextProvider;
+DialogScopedContextProvider.displayName = "DialogScopedContextProvider";
 
 export const DialogHeadingContext = createContext<
   SetState<string | undefined> | undefined

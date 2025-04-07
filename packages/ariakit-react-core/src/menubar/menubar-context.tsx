@@ -31,8 +31,10 @@ export const useMenubarScopedContext = menubar.useScopedContext;
 export const useMenubarProviderContext = menubar.useProviderContext;
 
 export const MenubarContextProvider = menubar.ContextProvider;
+MenubarContextProvider.displayName = "MenubarContextProvider";
 
 export const MenubarScopedContextProvider = menubar.ScopedContextProvider;
+MenubarScopedContextProvider.displayName = "MenubarScopedContextProvider";
 
 export const MenuItemCheckedContext = createContext<boolean | undefined>(
   undefined,

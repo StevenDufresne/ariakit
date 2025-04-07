@@ -85,6 +85,7 @@ export function createStoreContext<T extends Store>(
 ) {
   const context = React.createContext<T | undefined>(undefined);
   const scopedContext = React.createContext<T | undefined>(undefined);
+  scopedContext.displayName = "SystemScopedContext";
 
   const useContext = () => React.useContext(context);
 
@@ -106,10 +107,14 @@ export function createStoreContext<T extends Store>(
     props: React.ComponentPropsWithoutRef<typeof context.Provider>,
   ) => {
     return providers.reduceRight(
-      (children, Provider) => <Provider {...props}>{children}</Provider>,
+      (children, Provider) => {
+        return <Provider {...props}>{children}</Provider>;
+      },
       <context.Provider {...props} />,
     );
   };
+
+  ContextProvider.displayName = "SystemContextProvider-1";
 
   const ScopedContextProvider = (
     props: React.ComponentPropsWithoutRef<typeof scopedContext.Provider>,
@@ -126,6 +131,7 @@ export function createStoreContext<T extends Store>(
     );
   };
 
+  ScopedContextProvider.displayName = "SystemScopedContextProvider-1";
   return {
     context,
     scopedContext,
